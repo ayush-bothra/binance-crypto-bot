@@ -29,8 +29,8 @@ def get_valid_float(request: float) -> float:
             
 def format_quantity(value, precision=3):
     """
-    Rounds a number DOWN to the specified precision.
-    Example: format_quantity(0.0019, 3) -> 0.001
+     format_quantity(0.0019, 3) -> 0.001
     """
     factor = 10 ** precision
-    return int(value * factor) / factor
+    floored_value = int(value * factor) / factor
+    return "{:.{prec}f}".format(floored_value, prec=precision)
